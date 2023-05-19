@@ -217,3 +217,40 @@ p_val4: 0.248
 **As the p value is greater than 0.05**, we **fail to reject **the null hypothesis, then column 'rating' is **MAR ** (Missing At Random) dependent on column 'protein'.
 
 <iframe src="assets/protein_stat_dist.html" width=500 height=400 frameBorder=0></iframe>
+
+# Hypothesis testing
+
+Null hypothesis: There is no relationship between the proteins(PDV) in a recipe and its average ratings.
+
+Alternative hypothesis: There is a relationship between the proteins(PDV) in a recipe and its average ratings, specifically, the higher the protein it contains, the higher the average ratings it gets.
+
+We chose the **signed difference between the mean ratings** in the high protein recipe sample and population as the test statistic. We chose mean because the two distributions have very similar shapes. We chose signed difference instead of absolute difference because our alternative hypothesis has a direction: high protein recipes have higher average ratings than that of all recipes. In order to show such relationship, we need test statistics greater than or equal to the observed test statistic. We use 0.05 as the significance level. 
+
+The resulting p-value is 0.393, which is greater than 0.05, so we **fail to reject** our null hypothesis. This indicates that out high protein recipe sample has the same distribution as the population - all recipes. Therefore, it is more likely that there does not exist a relationship between the protein PDV in a recipe and its average ratings.
+
+```python
+# use the signed difference between the means in the sample and population as the test statistic
+high_protein_mean_rating = high_protein_recipe['rating'].mean()
+overall_mean_rating = recipe_cleaned['rating'].mean()
+obs_stat = high_protein_mean_rating - overall_mean_rating
+```
+
+obs_stat: 0.003060097141928786
+
+```python
+# hypothesis test
+n = 10000
+diffs_in_mean_ratings = []
+for _ in range(n):
+    sample_index = np.random.choice(np.arange(recipe_cleaned.shape[0]), size=high_protein_recipe.shape[0])
+    sample_mean_rating = recipe_cleaned.iloc[sample_index]['rating'].mean()
+    diff = sample_mean_rating - overall_mean_rating
+    diffs_in_mean_ratings.append(diff)
+
+# p-value
+p_val = (np.array(diffs_in_mean_ratings) >= obs_stat).mean()
+```
+
+p_val: 0.4051
+
+<iframe src="assets/hyp_stat_dist.html" width=500 height=400 frameBorder=0></iframe>
