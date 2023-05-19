@@ -107,7 +107,7 @@ We have two datasets for this project:
 
 ## Head of cleaned DataFrame: cleaned_recipe
 
-<iframe src="assets/clean2.png" width=1500 height=1100 frameBorder=0></iframe>
+<iframe src="assets/clean2.png" width=600 height=400 frameBorder=0></iframe>
 
 ## Univariate Analysis
 
@@ -193,7 +193,7 @@ As the two distributions are **quantitative (numerical) **and look like shifted 
 
 ```python
 # observed statistic
-obs_stat4 = rc.groupby('rating_missing')['protein'].mean().diff().abs().iloc[-1]
+obs_stat_protein = rc.groupby('rating_missing')['protein'].mean().diff().abs().iloc[-1]
 ```
 
 obs_stat4: 1.1081245331370013
@@ -201,18 +201,18 @@ obs_stat4: 1.1081245331370013
 ```python
 # permutation test
 n = 1000
-diffs = []
+diffs_protein = []
 shuffled = rc.copy()
 for _ in range(n):
     shuffled['protein'] = np.random.permutation(shuffled['protein'])
     stat = shuffled.groupby('rating_missing')['protein'].mean().diff().abs().iloc[-1]
-    diffs.append(stat)
+    diffs_protein.append(stat)
     
 # p value 
-p_val4 = (np.array(diffs) >= obs_stat4).mean()
+p_val_protein = (np.array(diffs_protein) >= obs_stat_protein).mean()
 ```
 
-p_val4: 0.248
+p_val_protein: 0.248
 
 **As the p value is greater than 0.05**, we **fail to reject **the null hypothesis, then column 'rating' is **MAR ** (Missing At Random) dependent on column 'protein'.
 
