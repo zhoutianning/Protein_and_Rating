@@ -115,13 +115,13 @@ We have two datasets for this project:
 
 ## Univariate Analysis
 
-<iframe src="assets/protein_hist.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/protein_hist.html" width=500 height=400 frameBorder=0></iframe>
 
 We plotted a histogram of the protein column to learn about the general distribution of protein PDV in the recipes. From the plot, we learned that the median of protein is 18 PDV. The 25-percentile and 75-percentile are 7 and 49 PDV, respectively. This means 50% of the recipes contain protein PDV within this range.
 
 ## **Bivariate Analysis (Protein(PDV) and Rating)**
 
-<iframe src="assets/protein_and_rating.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/protein_and_rating.html" width=500 height=400 frameBorder=0></iframe>
 
 We plotted a scatterplot of 'rating' and 'protein', the points with highest protein all have 5.0 rating and majority of the points are gathering over 500 protein and over 4.0 rating. From the scatterplot we cannot tell there is a perfect line of best fit which demonstrate theit relations, to futher investigate the relationship we need to do the systematic hypothesis testing.
 
