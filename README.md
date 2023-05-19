@@ -38,3 +38,13 @@ We have two datasets for this project:
 
 # Cleaning and EDA (Exploratory Data Analysis)
 
+## The steps we took for data cleaning:
+
+1. Left merge the recipes and interactions datasets together by recipe id. So we can have the 'rating' attribute in the dataframe, as later on we would investiage the ralationship of recipes' protein(PDV) and their average ratings.
+2. In the merged dataset, we fill all ratings of 0 with np.nan. The reason is that some users just write reveiw texts without giving the rating. Our analysis would calculate the average rate of each recipe and mean is very sensitive to extreme values like 0. We replace them with null value and not take them account to the mean, so the mean rating would not be skewed low.
+3. Find the average rating per recipe, as a Series. Meger this Series containing the average rating per recipe back to the recipes dataset. As there are more than one rating for each recipe and we would consider the average rating as our useful feature.
+4. Creat a 'rate_category' column which match each rating to its corresponding category. Then we can plot boxplot of protein(PDV) for each rate category. We may find some trend or difference useful for our analysis.
+5. Extract the protein attribut from the nutrition column, since we mainly focus on the relationship between protein and average rating.
+
+## Head of cleaned DataFrame: cleaned_recipe
+
