@@ -107,7 +107,7 @@ We have two datasets for this project:
 
 ## Head of cleaned DataFrame: cleaned_recipe
 
-![Screen Shot 2023-05-19 at 1.31.16 AM](/Users/Tiffany/Documents/GitHub/proteinandrating/README.assets/Screen Shot 2023-05-19 at 1.31.16 AM.png)
+<iframe src="assets/clean.png" width=1500 height=1100 frameBorder=0></iframe>
 
 ## Univariate Analysis
 
