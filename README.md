@@ -107,7 +107,7 @@ We have two datasets for this project:
 
 ## Head of cleaned DataFrame: cleaned_recipe
 
-<iframe src="assets/clean.png" width=1500 height=1100 frameBorder=0></iframe>
+<iframe src="assets/clean2.png" width=1500 height=1100 frameBorder=0></iframe>
 
 ## Univariate Analysis
 
