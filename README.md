@@ -108,12 +108,12 @@ We have two datasets for this project:
 ## Head of cleaned DataFrame: cleaned_recipe
 
 |      |                               name |     id | minutes | contributor_id |  submitted |                                              tags |                                     nutrition | n_steps |                                             steps |                                       description |                                       ingredients | n_ingredients | rating | protein | rate_category |
-| ---: | ---------------------------------: | -----: | ------: | -------------: | ---------: | ------------------------------------------------: | --------------------------------------------: | ------: | ------------------------------------------------: | ------------------------------------------------: | ------------------------------------------------: | ------------: | -----: | ------: | ------------- |
-|    0 |  1 brownies in the world best ever | 333281 |      40 |         985201 | 2008-10-27 | ['60-minutes-or-less', 'time-to-make', 'course... |      [138.4, 10.0, 50.0, 3.0, 3.0, 19.0, 6.0] |      10 | ['heat the oven to 350f and arrange the rack i... | these are the most; chocolatey, moist, rich, d... | ['bittersweet chocolate', 'unsalted butter', '... |             9 |    4.0 |     3.0 | 4             |
-|    1 | 1 in canada chocolate chip cookies | 453467 |      45 |        1848091 | 2011-04-11 | ['60-minutes-or-less', 'time-to-make', 'cuisin... |  [595.1, 46.0, 211.0, 22.0, 13.0, 51.0, 26.0] |      12 | ['pre-heat oven the 350 degrees f', 'in a mixi... | this is the recipe that we use at my school ca... | ['white sugar', 'brown sugar', 'salt', 'margar... |            11 |    5.0 |    13.0 | 5             |
-|    2 |             412 broccoli casserole | 306168 |      40 |          50969 | 2008-05-30 | ['60-minutes-or-less', 'time-to-make', 'course... |     [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0] |       6 | ['preheat oven to 350 degrees', 'spray a 2 qua... | since there are already 411 recipes for brocco... | ['frozen broccoli cuts', 'cream of chicken sou... |             9 |    5.0 |    22.0 | 5             |
-|    3 |             millionaire pound cake | 286009 |     120 |         461724 | 2008-02-12 | ['time-to-make', 'course', 'cuisine', 'prepara... | [878.3, 63.0, 326.0, 13.0, 20.0, 123.0, 39.0] |       7 | ['freheat the oven to 300 degrees', 'grease a ... |  why a millionaire pound cake? because it's su... | ['butter', 'sugar', 'eggs', 'all-purpose flour... |             7 |    5.0 |    20.0 | 5             |
-|    4 |                      2000 meatloaf | 475785 |      90 |        2202916 | 2012-03-06 | ['time-to-make', 'course', 'main-ingredient', ... |    [267.0, 30.0, 12.0, 12.0, 29.0, 48.0, 2.0] |      17 | ['pan fry bacon , and set aside on a paper tow... | ready, set, cook! special edition contest entr... | ['meatloaf mixture', 'unsmoked bacon', 'goat c... |            13 |    5.0 |    29.0 | 5             |
+| ---: | ---------------------------------: | -----: | ------: | :------------- | ---------: | ------------------------------------------------: | --------------------------------------------: | ------: | ------------------------------------------------: | ------------------------------------------------: | ------------------------------------------------: | ------------: | -----: | ------: | ------------- |
+|    0 |  1 brownies in the world best ever | 333281 |      40 | 985201         | 2008-10-27 | ['60-minutes-or-less', 'time-to-make', 'course... |      [138.4, 10.0, 50.0, 3.0, 3.0, 19.0, 6.0] |      10 | ['heat the oven to 350f and arrange the rack i... | these are the most; chocolatey, moist, rich, d... | ['bittersweet chocolate', 'unsalted butter', '... |             9 |    4.0 |     3.0 | 4             |
+|    1 | 1 in canada chocolate chip cookies | 453467 |      45 | 1848091        | 2011-04-11 | ['60-minutes-or-less', 'time-to-make', 'cuisin... |  [595.1, 46.0, 211.0, 22.0, 13.0, 51.0, 26.0] |      12 | ['pre-heat oven the 350 degrees f', 'in a mixi... | this is the recipe that we use at my school ca... | ['white sugar', 'brown sugar', 'salt', 'margar... |            11 |    5.0 |    13.0 | 5             |
+|    2 |             412 broccoli casserole | 306168 |      40 | 50969          | 2008-05-30 | ['60-minutes-or-less', 'time-to-make', 'course... |     [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0] |       6 | ['preheat oven to 350 degrees', 'spray a 2 qua... | since there are already 411 recipes for brocco... | ['frozen broccoli cuts', 'cream of chicken sou... |             9 |    5.0 |    22.0 | 5             |
+|    3 |             millionaire pound cake | 286009 |     120 | 461724         | 2008-02-12 | ['time-to-make', 'course', 'cuisine', 'prepara... | [878.3, 63.0, 326.0, 13.0, 20.0, 123.0, 39.0] |       7 | ['freheat the oven to 300 degrees', 'grease a ... |  why a millionaire pound cake? because it's su... | ['butter', 'sugar', 'eggs', 'all-purpose flour... |             7 |    5.0 |    20.0 | 5             |
+|    4 |                      2000 meatloaf | 475785 |      90 | 2202916        | 2012-03-06 | ['time-to-make', 'course', 'main-ingredient', ... |    [267.0, 30.0, 12.0, 12.0, 29.0, 48.0, 2.0] |      17 | ['pan fry bacon , and set aside on a paper tow... | ready, set, cook! special edition contest entr... | ['meatloaf mixture', 'unsmoked bacon', 'goat c... |            13 |    5.0 |    29.0 | 5             |
 
 ## Univariate Analysis
 
@@ -148,14 +148,14 @@ We do not believe there is a column in the dataset that is NMAR(Not Missing At R
 
 <iframe src="assets/minutes_dist.html" width=500 height=400 frameBorder=0></iframe>
 
-This is the distribution of minutes in two different groups: 
+This is the distribution of 'minutes' in two different groups: 
 
 * value of 'rating' is missing 
 * value of 'rating' is not missing
 
 Null hypothesis: the distribution of 'minutes' is the same when 'rating' is missing and when 'rating' is not missing.
 
-As the two distributions are **quantitative (numerical) **and look like shifted versions of the same basic shape, we use the **absolute difference** in group means as test statistic.
+As the two distributions are **quantitative (numerical) **and look like shifted versions of the same basic shape, we use the **absolute difference in group means** as test statistic.
 
 ```python
 # observed statistic
@@ -180,6 +180,46 @@ p_val_minutes = (np.array(diffs_minutes) >= obs_stat_minutes).mean()
 
 p_val_minutes: 0.0
 
-**As the p value is significantly small** **(less than 0.05)**, we **reject **the null hypothesis, then column 'rating' is **MAR**(Missing At Random) dependent on column 'minutes'.
+**As the p value is significantly small** **(less than 0.05)**, we **reject **the null hypothesis, then column 'rating' is **MAR ** (Missing At Random) dependent on column 'minutes'.
 
 <iframe src="assets/minutes_stat_dist.html" width=500 height=400 frameBorder=0></iframe>
+
+## **Comparing null and non-null 'rating' distributions for 'protein'**
+
+<iframe src="assets/protein_dist.html" width=500 height=400 frameBorder=0></iframe>
+
+This is the distribution of 'protein' in two different groups: 
+
+* value of 'rating' is missing 
+* value of 'rating' is not missing
+
+Null hypothesis: the distribution of 'protein' is the same when 'rating' is missing and when 'rating' is not missing.
+
+As the two distributions are **quantitative (numerical) **and look like shifted versions of the same basic shape, we use the **absolute difference in group means** as test statistic.
+
+```python
+# observed statistic
+obs_stat4 = rc.groupby('rating_missing')['protein'].mean().diff().abs().iloc[-1]
+```
+
+obs_stat4: 1.1081245331370013
+
+```python
+# permutation test
+n = 1000
+diffs = []
+shuffled = rc.copy()
+for _ in range(n):
+    shuffled['protein'] = np.random.permutation(shuffled['protein'])
+    stat = shuffled.groupby('rating_missing')['protein'].mean().diff().abs().iloc[-1]
+    diffs.append(stat)
+    
+# p value 
+p_val4 = (np.array(diffs) >= obs_stat4).mean()
+```
+
+p_val4: 0.248
+
+**As the p value is greater than 0.05**, we **fail to reject **the null hypothesis, then column 'rating' is **MAR ** (Missing At Random) dependent on column 'protein'.
+
+<iframe src="assets/protein_stat_dist.html" width=500 height=400 frameBorder=0></iframe>
