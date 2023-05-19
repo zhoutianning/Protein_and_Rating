@@ -160,10 +160,9 @@ As the two distributions are **quantitative (numerical) **and look like shifted 
 ```python
 # observed statistic
 obs_stat_minutes = rc.groupby('rating_missing')['minutes'].mean().diff().abs().iloc[-1]
-obs_stat_minutes
 ```
 
-13.747290902003819
+obs_stat_minutes: 13.747290902003819
 
 ```python
 # permutation test
@@ -177,10 +176,9 @@ for _ in range(n):
 
 # p value 
 p_val_minutes = (np.array(diffs_minutes) >= obs_stat_minutes).mean()
-p_val_minutes
 ```
 
-0.0
+p_val_minutes: 0.0
 
 **As the p value is significantly small** **(less than 0.05)**, we **reject **the null hypothesis, then column 'rating' is **MAR**(Missing At Random) dependent on column 'minutes'.
 
