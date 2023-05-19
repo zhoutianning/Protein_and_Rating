@@ -48,3 +48,7 @@ We have two datasets for this project:
 
 ## Head of cleaned DataFrame: cleaned_recipe
 
+```html
+<iframe src="assets/protein_hist.html" width=800 height=600 frameBorder=0></iframe>
+```
+
