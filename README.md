@@ -105,12 +105,25 @@ We have two datasets for this project:
 
 ## Head of cleaned DataFrame: cleaned_recipe
 
+|      |                               name |     id | minutes | contributor_id |  submitted |                                              tags |                                     nutrition | n_steps |                                             steps |                                       description |                                       ingredients | n_ingredients | rating | protein | rate_category |
+| ---: | ---------------------------------: | -----: | ------: | -------------: | ---------: | ------------------------------------------------: | --------------------------------------------: | ------: | ------------------------------------------------: | ------------------------------------------------: | ------------------------------------------------: | ------------: | -----: | ------: | ------------- |
+|    0 |  1 brownies in the world best ever | 333281 |      40 |         985201 | 2008-10-27 | ['60-minutes-or-less', 'time-to-make', 'course... |      [138.4, 10.0, 50.0, 3.0, 3.0, 19.0, 6.0] |      10 | ['heat the oven to 350f and arrange the rack i... | these are the most; chocolatey, moist, rich, d... | ['bittersweet chocolate', 'unsalted butter', '... |             9 |    4.0 |     3.0 | 4             |
+|    1 | 1 in canada chocolate chip cookies | 453467 |      45 |        1848091 | 2011-04-11 | ['60-minutes-or-less', 'time-to-make', 'cuisin... |  [595.1, 46.0, 211.0, 22.0, 13.0, 51.0, 26.0] |      12 | ['pre-heat oven the 350 degrees f', 'in a mixi... | this is the recipe that we use at my school ca... | ['white sugar', 'brown sugar', 'salt', 'margar... |            11 |    5.0 |    13.0 | 5             |
+|    2 |             412 broccoli casserole | 306168 |      40 |          50969 | 2008-05-30 | ['60-minutes-or-less', 'time-to-make', 'course... |     [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0] |       6 | ['preheat oven to 350 degrees', 'spray a 2 qua... | since there are already 411 recipes for brocco... | ['frozen broccoli cuts', 'cream of chicken sou... |             9 |    5.0 |    22.0 | 5             |
+|    3 |             millionaire pound cake | 286009 |     120 |         461724 | 2008-02-12 | ['time-to-make', 'course', 'cuisine', 'prepara... | [878.3, 63.0, 326.0, 13.0, 20.0, 123.0, 39.0] |       7 | ['freheat the oven to 300 degrees', 'grease a ... |  why a millionaire pound cake? because it's su... | ['butter', 'sugar', 'eggs', 'all-purpose flour... |             7 |    5.0 |    20.0 | 5             |
+|    4 |                      2000 meatloaf | 475785 |      90 |        2202916 | 2012-03-06 | ['time-to-make', 'course', 'main-ingredient', ... |    [267.0, 30.0, 12.0, 12.0, 29.0, 48.0, 2.0] |      17 | ['pan fry bacon , and set aside on a paper tow... | ready, set, cook! special edition contest entr... | ['meatloaf mixture', 'unsmoked bacon', 'goat c... |            13 |    5.0 |    29.0 | 5             |
+
+## Univariate Analysis
+
 <iframe src="assets/protein_hist.html" width=800 height=600 frameBorder=0></iframe>
 
-
+We plotted a histogram of the protein column to learn about the general distribution of protein PDV in the recipes. From the plot, we learned that the median of protein is 18 PDV. The 25-percentile and 75-percentile are 7 and 49 PDV, respectively. This means 50% of the recipes contain protein PDV within this range.
 
 ## **Bivariate Analysis (Protein(PDV) and Rating)**
 
 <iframe src="assets/protein_and_rating.html" width=800 height=600 frameBorder=0></iframe>
 
+We plotted a scatterplot of 'rating' and 'protein', the points with highest protein all have 5.0 rating and majority of the points are gathering over 500 protein and over 4.0 rating. From the scatterplot we cannot tell there is a perfect line of best fit which demonstrate theit relations, to futher investigate the relationship we need to do the systematic hypothesis testing.
+
+# Assessment of Missingness
 
