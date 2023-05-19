@@ -22,9 +22,11 @@ We have two datasets for this project:
    | 'submitted'      | Date recipe was submitted                                    |
    | 'tags'           | Food.com tags for recipe                                     |
    | 'nutrition'      | Nutrition information in the form [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]; PDV stands for “percentage of daily value”e |
-   | 'n_steps'        | Number of steps in recipee                                   |
+   | 'n_steps'        | Number of steps in recipe                                    |
    | 'steps'          | Text for recipe steps, in order                              |
    | 'description'    | User-provided description                                    |
+   | 'ingredients'    | The list of ingredients used                                 |
+   | 'n_ingredients'  | The number of ingredients used                               |
 
 2. RAW_interactions.csv (731927 rows), which contains reviews and ratings submitted for the recipes in RAW_recipes.csv.
 
@@ -125,5 +127,61 @@ We plotted a histogram of the protein column to learn about the general distribu
 
 We plotted a scatterplot of 'rating' and 'protein', the points with highest protein all have 5.0 rating and majority of the points are gathering over 500 protein and over 4.0 rating. From the scatterplot we cannot tell there is a perfect line of best fit which demonstrate theit relations, to futher investigate the relationship we need to do the systematic hypothesis testing.
 
+## Interesting Aggregates
+
+|               |  min |      mean |    max |
+| ------------: | ---: | --------: | -----: |
+| rate_category |      |           |        |
+|             1 |  0.0 | 29.485569 |  459.0 |
+|             2 |  0.0 | 31.687011 |  246.0 |
+|             3 |  0.0 | 33.454647 |  835.0 |
+|             4 |  0.0 | 35.281046 | 1361.0 |
+|             5 |  0.0 | 32.724035 | 4356.0 |
+
+Since we want to investigate the relationship between protein and rating, we generated a table by grouping recipes based on rate category and aggregate the min, mean, and max of proteins in each category. There is a trend that higher rating groups have higher mean protein PDV, which leads us to think that there is a relationship between protein and rating.
+
 # Assessment of Missingness
 
+We do not believe there is a column in the dataset that is NMAR(Not Missing At Random). There are two columns with missing data which are 'rating' and 'description' and majority missing data appears in 'rating'. We believe the missingness of 'rating' may correlated with other attributes such as 'minutes' (Some recipes requires too much time to cook may have less users to try and rate). We are going to do several permutation tests to test if the distribution of ('minutes', 'n_steps', 'submitted', 'n_ingredients') is the same when column 'rating' is missing and when column 'rating' is not missing.
+
+##  **Comparing null and non-null 'rating' distributions for 'minutes'**
+
+<iframe src="assets/minutes_dist.html" width=500 height=400 frameBorder=0></iframe>
+
+This is the distribution of minutes in two different groups: 
+
+* value of 'rating' is missing 
+* value of 'rating' is not missing
+
+Null hypothesis: the distribution of 'minutes' is the same when 'rating' is missing and when 'rating' is not missing.
+
+As the two distributions are **quantitative (numerical) **and look like shifted versions of the same basic shape, we use the **absolute difference** in group means as test statistic.
+
+```python
+# observed statistic
+obs_stat_minutes = rc.groupby('rating_missing')['minutes'].mean().diff().abs().iloc[-1]
+obs_stat_minutes
+```
+
+13.747290902003819
+
+```python
+# permutation test
+n = 1000
+diffs_minutes = []
+shuffled = rc.copy()
+for _ in range(n):
+    shuffled['minutes'] = np.random.permutation(shuffled['minutes'])
+    stat = shuffled.groupby('rating_missing')['minutes'].mean().diff().abs().iloc[-1]
+    diffs_minutes.append(stat)
+
+# p value 
+p_val_minutes = (np.array(diffs_minutes) >= obs_stat_minutes).mean()
+p_val_minutes
+```
+
+0.0
+
+**As the p value is significantly small** **(less than 0.05)**, we **reject **the null hypothesis, then column 'rating' is **MAR**(Missing At Random) dependent on column 'minutes'.
+
+<iframe src="assets/minutes_stat_dist.html" width=500 height=400 frameBorder=0></iframe>
