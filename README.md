@@ -8,7 +8,7 @@ This dataset contanins all the information about recipes and interations from us
 
 Our question helps to answer whether recipes with high protein tends to have high rating by most users' preferences, we can also find out if this website is suitable for vegetarians to use.
 
-The dataset dataset contains recipes and ratings from [food.com](https://www.food.com/).
+The dataset contains recipes and ratings from [food.com](https://www.food.com/).
 We have two datasets for this project:
 
 1. RAW_recipes.csv (83782 rows), which contains the recipes and the following attributes.
